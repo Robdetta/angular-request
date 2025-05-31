@@ -1,59 +1,96 @@
-# AngularRequest
+# Angular API Request Tester
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.0.
+A simple Angular standalone app to test API endpoints by sending a message and displaying the response in a modal.
 
-## Development server
+## Features
 
-To start a local development server, run:
+- Enter a message and send it to a configurable API endpoint.
+- Required header (`sendthis: 123Lucas`) is included in the request.
+- Displays the API's `returnMessage` in a modal popup.
+- Responsive and mobile-friendly UI.
+
+## Usage
+
+1. Enter your message in the input box.
+2. Click **Send** to POST the message to the API.
+3. View the response in a modal popup and click **Dismiss** to close it.
+
+## Getting Started
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/Robdetta/angular-request.git
+    cd angular-request
+    ```
+
+2.  **Install dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+3.  **Run the application:**
+
+    ```bash
+    ng serve
+    ```
+
+    Open [http://localhost:4200](http://localhost:4200) in your browser.
+
+## Configuration
+
+- The API endpoint and header can be configured in the app config (see `main.ts` and `app.config.ts`).
+
+## Tech Stack
+
+- Angular Standalone Components
+- TypeScript
+- RxJS
+
+## Development
 
 ```bash
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open [http://localhost:4200](http://localhost:4200) in your browser.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Running Tests
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+To run the unit tests, use the following command:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+## How it Works
 
-For end-to-end (e2e) testing, run:
+1.  Enter a message in the input box.
+2.  Click the "Send" button to POST your message to the API endpoint.
+3.  The request includes a required header: `sendthis: 123Lucas`. You can verify this in your browser's developer tools (Network tab).
+4.  The API's `returnMessage` is displayed in a modal until you dismiss it.
+5.  CORS may be required on the backend. If you encounter issues, ensure your API allows requests from `https://*`, `http://localhost:4200`, and `http://localhost:8100`.
 
-```bash
-ng e2e
-```
+## API Endpoint
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+The application sends requests to the following API endpoint:
 
-## Additional Resources
+`https://sample.lteprocess.com/trythis`
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Required Header
+
+The following header is required for the API request:
+
+`sendthis: 123Lucas`
+
+## CORS Configuration
+
+The backend API must be configured to allow CORS requests from the following origins:
+
+- `https://*`
+- `http://localhost:4200`
+- `http://localhost:8100`
